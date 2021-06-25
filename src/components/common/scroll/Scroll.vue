@@ -48,8 +48,8 @@ export default {
 
   },
   methods:{
-    scrollTO(x , y , time= 300){
-      this.scroll&& this.scroll.scrollTO(x ,y ,time)
+    scrollTo(x , y , time= 300){
+      this.scroll&& this.scroll.scrollTo(x ,y ,time);
     },
     refresh() {
         this.scroll && this.scroll.refresh()},

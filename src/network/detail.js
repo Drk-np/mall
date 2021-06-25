@@ -10,11 +10,19 @@ export function getDetail(iid){
   })
 }
 
+
+
+export function getRecommend(){
+  return request({
+    url:'recommend',
+  })
+}
+
 export class Goods {
   constructor(itemIfo, columns, services) {
     this.title = itemIfo.title
     this.desc = itemIfo.desc
-    this.newPrice = itemIfo.Price
+    this.newPrice = itemIfo.price
     this.oldPrice = itemIfo.oldPrice
     this.discount = itemIfo.discountDesc
     this.columns = columns
