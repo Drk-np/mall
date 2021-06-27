@@ -33,9 +33,7 @@ import DetailShopInfo from "@/views/detail/childCompa/DetailShopInfo";
 import Scroll from "@/components/common/scroll/Scroll";
 import {debounce} from "@/common/utils";
 import {itemListenerMixin} from "@/common/mixin";
-
-
-
+import Toast from "@/components/common/toast/Toast";
 
 
 export default {
@@ -54,7 +52,6 @@ export default {
       grtThemeTopY:null,
       currentIndex : 0,
       isShowBackTop: false,
-
     }
   },
   created() {
@@ -121,7 +118,7 @@ export default {
     goodsList,
     goodsListItem,
     DetailBottomBar,
-    BackTop,
+    BackTop
   },
   mixins:[itemListenerMixin],
   methods: {
@@ -154,15 +151,21 @@ export default {
     },
     addToCart() {
       //1.获取购物车需要展示的信息
-      const product = []
+      const product = {}
       product.image = this.topImages[0]
       product.title = this.goods.title
       product.desc = this.goods.desc
-      product.price = this.goods.newPrice
+      product.price = this.goods.realPrice
       product.iid = this.iid
       //商品加入购物车
       // this.$store.cartList.push()
-      this.$store.dispatch('addCart',product)
+      this.$store.dispatch('addCart',product).then(res => {
+        this.$toast.show(res, 2000)
+      })
+
+
+
+
   },},
 
 

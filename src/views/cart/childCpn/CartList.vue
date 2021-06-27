@@ -4,7 +4,7 @@
       <cart-list-item
         v-for="(item, index) of cartList"
         :key="index"
-        :item-info="item"
+        :itemInfo="item"
       />
     </scroll>
   </div>

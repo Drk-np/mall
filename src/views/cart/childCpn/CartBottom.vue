@@ -46,7 +46,7 @@
       calcClick() {
         if(!this.isSelectorAll) {
           this.$toast.show('请选择购买的商品')
-          
+
         }
       }
     }
